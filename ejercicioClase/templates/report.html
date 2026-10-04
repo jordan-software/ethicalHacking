@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Vulnerability Log</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Vulnerability Log</h1>
+
+    <form method="POST" action="/report">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" placeholder="e.g. SQL Injection in login" required>
+
+        <label for="owasp_category">OWASP Category</label>
+        <select id="owasp_category" name="owasp_category">
+            <option value="A01">A01 - Broken Access Control</option>
+            <option value="A03">A03 - Injection</option>
+            <option value="A07">A07 - Identification and Authentication Failures</option>
+            <option value="A10">A10 - Server-Side Request Forgery</option>
+        </select>
+
+        <label for="severity">Severity</label>
+        <select id="severity" name="severity">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+
+        <button type="submit">Report vulnerability</button>
+    </form>
+
+    <a href="/">Ver lista de vulnerabilidades</a>
+</body>
+</html>
